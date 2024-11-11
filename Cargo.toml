@@ -1,0 +1,33 @@
+[package]
+name = "rust-discord-bot"
+authors = [ "kvba (https://github.com/kvba0000)" ]
+description = "Test project for learning Rust - Discord bot"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+panic = "abort"
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+
+[dependencies]
+poise = "0.6.1"
+tokio = { version = "1.41.1", features = [ "macros", "rt-multi-thread" ] }
+
+[dependencies.serenity]
+version = "0.12.2"
+default-features = false
+features = [
+    "cache",
+    "http",
+    "client",
+    "native_tls_backend",
+    "model",
+    "gateway",
+    "builder",
+    "chrono",
+    "simd_json"
+]
